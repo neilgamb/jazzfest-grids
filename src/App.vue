@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Navigation :currentDay="currentDay" :setCurrentDay="setCurrentDay" />
+    <GridContainer :currentDay="currentDay" :setCurrentDay="setCurrentDay" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GridContainer from './components/GridContainer';
+import Navigation from './components/Navigation';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    Navigation,
+    GridContainer
+  },
+  data(){
+    return {
+      currentDay: 1
+    }
+  },
+  methods: {
+    setCurrentDay: function(current){
+      this.currentDay = current;
+    }
   }
 }
 </script>
@@ -23,6 +35,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
