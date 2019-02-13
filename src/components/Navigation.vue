@@ -3,6 +3,12 @@
       :navigateTo="currentDay"
       :per-page="1" 
       :mouse-drag="false"
+      :paginationPadding="2"
+      :paginationSize="6"
+      :scrollPerPage="true"
+      :perPageCustom="[[0, 1], [480, 2]]"
+      paginationActiveColor="#f0f0f0"
+      paginationColor="#666"
       @pageChange="handleSlideChange"
     >
       <slide>
@@ -31,3 +37,4 @@ export default {
   }
 }
 </script>
+

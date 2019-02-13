@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Navigation :currentDay="currentDay" :setCurrentDay="setCurrentDay" />
-    <GridContainer :currentDay="currentDay" :setCurrentDay="setCurrentDay" />
+    <Navigation :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="navigation"/>
+    <GridContainer :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="grid-container" />
   </div>
 </template>
 
@@ -17,7 +17,7 @@ export default {
   },
   data(){
     return {
-      currentDay: 1
+      currentDay: 0
     }
   },
   methods: {
@@ -28,12 +28,28 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  background: black;
+  color: white;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  /* padding: 5px 0px; */
+  box-sizing: border-box;
+}
+
+.navigation {
+  padding: 5px;
+}
+
+.grid-container {
+  flex: 1;
+  margin-top: 5px;
 }
 </style>
