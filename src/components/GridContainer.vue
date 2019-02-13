@@ -140,7 +140,7 @@ export default {
   },
   methods: {
     handleSlideChange: function(current){
-      this.setCurrentDay(current)
+      this.setCurrentDay(current);
     }
   }
 }
@@ -148,16 +148,15 @@ export default {
 
 <style scoped>
 .day {
-	/* padding: 0px 2px; */
 	box-sizing: border-box;
 }
 
 .event {
 	display: flex;
 	padding: 20px 5px;
-	margin-top: 5px;
 	background: #666;
 	color: white;
+	margin-top: 5px;
 }
 
 .venue {

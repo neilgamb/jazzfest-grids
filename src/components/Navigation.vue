@@ -3,6 +3,7 @@
       :navigateTo="currentDay"
       :per-page="1" 
       :mouse-drag="false"
+      :paginationEnabled="false"
       :paginationPadding="2"
       :paginationSize="6"
       :scrollPerPage="true"
@@ -11,10 +12,10 @@
       paginationColor="#666"
       @pageChange="handleSlideChange"
     >
-      <slide>
+      <slide class="day">
         Thursday
       </slide>
-      <slide>
+      <slide class="day">
         Friday
       </slide>
     </carousel>
@@ -32,9 +33,16 @@ export default {
   },
   methods: {
     handleSlideChange: function(current){
-      this.setCurrentDay(current)
+      this.setCurrentDay(current);
     }
   }
 }
 </script>
 
+<style scoped>
+.day {
+	/* padding: 0px 2px; */
+	box-sizing: border-box;
+    text-align: right;
+}
+</style>
