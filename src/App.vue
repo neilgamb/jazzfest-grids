@@ -6,8 +6,17 @@
       :dates="getDates(currentPeriod)"
       class="masthead"
     />
-    <Grids :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="grids"/>
-    <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
+    <Grids 
+      :currentDay="currentDay" 
+      :setCurrentDay="setCurrentDay" 
+      :dates="getDates(currentPeriod)" 
+      class="grids"
+    />
+    <Tabs 
+      :activeTab="currentPeriod" 
+      :setActiveTab="setActiveTab" 
+      class="weekend-switch-container"
+    />
   </div>
 </template>
 

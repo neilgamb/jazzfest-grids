@@ -8,97 +8,7 @@
     :perPageCustom="[[0, 1], [480, 2]]"
     @pageChange="handleSlideChange"
   >
-    <slide class="day">
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-    </slide>
-    <slide class="day">
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
+    <slide v-for="date in dates" :key="date.date.toString()" class="day">
       <div class="event">
         <div class="venue">Venue</div>
         <div class="show">Show Details</div>
@@ -132,7 +42,7 @@ import { Carousel, Slide } from "vue-carousel";
 
 export default {
   name: "Grids",
-  props: ["currentDay", "setCurrentDay"],
+  props: ["currentDay", "setCurrentDay", "dates"],
   components: {
     Carousel,
     Slide

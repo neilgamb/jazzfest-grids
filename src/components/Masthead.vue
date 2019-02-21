@@ -12,7 +12,7 @@
     paginationColor="#666"
     @pageChange="handleSlideChange"
   >
-    <slide v-for="date in dates" class="date-container" :key="date">
+    <slide v-for="date in dates" :key="date.date.toString()" class="date-container">
       <div class="day-of-week">{{ dayOfWeek(date.date) }}</div>
       <div class="calendar-container">
         <div class="month">{{ monthOfYear(date.date) }}</div>
