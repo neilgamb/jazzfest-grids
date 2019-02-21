@@ -40,6 +40,7 @@ export default {
     },
     setActiveTab: function(tab) {
       this.currentPeriod = tab;
+      this.currentDay = 0;
     },
     getDates: function(period) {
       const { dates } = this.initData;

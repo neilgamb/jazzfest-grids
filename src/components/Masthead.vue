@@ -12,25 +12,20 @@
     paginationColor="#666"
     @pageChange="handleSlideChange"
   >
-    <slide class="date-container">
-      <div class="day-of-week">Thursday</div>
+    <slide v-for="date in dates" class="date-container" :key="date">
+      <div class="day-of-week">{{ dayOfWeek(date.date) }}</div>
       <div class="calendar-container">
-        <div class="month">APRIL</div>
-        <div class="day">25</div>
+        <div class="month">{{ monthOfYear(date.date) }}</div>
+        <div class="day">{{ date.date.getDate() }}</div>
       </div>
     </slide>
-    <slide class="date-container">
-      <div class="day-of-week">Friday</div>
-      <div class="calendar-container">
-        <div class="month">APRIL</div>
-        <div class="day">26</div>
-      </div>
-    </slide>
+
   </carousel>
 </template>
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
+import { dayOfWeek, monthOfYear } from '../helpers';
 
 export default {
   name: "Masthead",
@@ -42,7 +37,9 @@ export default {
   methods: {
     handleSlideChange: function(current) {
       this.setCurrentDay(current);
-    }
+    },
+    dayOfWeek: dayOfWeek,
+    monthOfYear: monthOfYear,
   }
 };
 </script>
