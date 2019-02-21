@@ -1,48 +1,60 @@
 <template>
   <div id="app">
-    <Navigation :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="navigation"/>
-    <GridContainer :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="grid-container" />
-    <WeekendSwitch :activeTab="activeTab" :setActiveTab="setActiveTab" class="weekend-switch-container" />
+    <Masthead
+      :currentDay="currentDay"
+      :setCurrentDay="setCurrentDay"
+      :dates="getDates(currentPeriod)"
+      class="masthead"
+    />
+    <Grids :currentDay="currentDay" :setCurrentDay="setCurrentDay" class="grids"/>
+    <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
   </div>
 </template>
 
 <script>
-import GridContainer from './components/GridContainer';
-import Navigation from './components/Navigation';
-import WeekendSwitch from './components/WeekendSwitch';
+import Grids from "./components/Grids";
+import Masthead from "./components/Masthead";
+import Tabs from "./components/Tabs";
+import { data } from "./assets/data.js";
 
 export default {
-  name: 'app',
+  name: "app",
   components: {
-    Navigation,
-    GridContainer,
-    WeekendSwitch,
+    Masthead,
+    Grids,
+    Tabs
   },
-  data(){
+  data() {
     return {
       currentDay: 0,
-      activeTab: 0
-    }
+      currentPeriod: 0,
+      initData: data
+    };
+  },
+  mounted() {
+    // this.initData = data;
   },
   methods: {
-    setCurrentDay: function(current){
-      this.currentDay = current;
+    setCurrentDay: function(day) {
+      this.currentDay = day;
     },
-    setActiveTab: function(tab){
-      this.activeTab = tab;
+    setActiveTab: function(tab) {
+      this.currentPeriod = tab;
+    },
+    getDates: function(period) {
+      const { dates } = this.initData;
+      return dates.filter(date => date.period === period);
     }
   }
-}
+};
 </script>
 
 <style scoped>
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background: black;
-  color: white;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -50,12 +62,12 @@ export default {
   box-sizing: border-box;
 }
 
-.navigation {
-  padding: 10px 5px 5px 5px;
-  box-sizing: border-box;
+.masthead {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 10px;
 }
 
-.grid-container {
+.grids {
   flex: 1;
 }
 
