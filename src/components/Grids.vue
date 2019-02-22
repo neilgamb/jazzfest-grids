@@ -9,23 +9,22 @@
     @pageChange="handleSlideChange"
   >
     <slide v-for="date in dates" :key="date.date.toString()" class="day">
-      <div v-for="grid in grids" :key="grid.venue.name" class="grid">
-        <div class="venue">{{ grid.venue.name }}</div>
-        <div class="show">Show Details</div>
-      </div>
+      <Grid :grid="grid" v-for="grid in grids" :key="grid.venue.name" class="grid"/>
     </slide>
   </carousel>
 </template>
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
+import Grid from "./Grid";
 
 export default {
   name: "Grids",
   props: ["currentDay", "setCurrentDay", "dates", "grids"],
   components: {
     Carousel,
-    Slide
+    Slide,
+    Grid
   },
   methods: {
     handleSlideChange: function(current) {
@@ -42,24 +41,8 @@ export default {
 
 .grid {
   display: flex;
-  height: 100px;
+  /* height: 100px; */
   border-bottom: 1px solid #f0f0f0;
-}
-
-.venue {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 5px;
-}
-
-.show {
-  flex: 3;
-  text-align: left;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .grids >>> .VueCarousel-wrapper {
