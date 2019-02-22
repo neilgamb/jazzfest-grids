@@ -9,28 +9,8 @@
     @pageChange="handleSlideChange"
   >
     <slide v-for="date in dates" :key="date.date.toString()" class="day">
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
-        <div class="show">Show Details</div>
-      </div>
-      <div class="event">
-        <div class="venue">Venue</div>
+      <div v-for="grid in grids" :key="grid.venue.name" class="grid">
+        <div class="venue">{{ grid.venue.name }}</div>
         <div class="show">Show Details</div>
       </div>
     </slide>
@@ -42,7 +22,7 @@ import { Carousel, Slide } from "vue-carousel";
 
 export default {
   name: "Grids",
-  props: ["currentDay", "setCurrentDay", "dates"],
+  props: ["currentDay", "setCurrentDay", "dates", "grids"],
   components: {
     Carousel,
     Slide
@@ -60,7 +40,7 @@ export default {
   box-sizing: border-box;
 }
 
-.event {
+.grid {
   display: flex;
   height: 100px;
   border-bottom: 1px solid #f0f0f0;
@@ -71,6 +51,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0px 5px;
 }
 
 .show {

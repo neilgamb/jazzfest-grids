@@ -10,6 +10,7 @@
       :currentDay="currentDay" 
       :setCurrentDay="setCurrentDay" 
       :dates="getDates(currentPeriod)" 
+      :grids="getGrids(currentPeriod)"
       class="grids"
     />
     <Tabs 
@@ -25,6 +26,7 @@ import Grids from "./components/Grids";
 import Masthead from "./components/Masthead";
 import Tabs from "./components/Tabs";
 import { data } from "./assets/data.js";
+import { collateGrids } from "./helpers.js";
 
 export default {
   name: "app",
@@ -37,11 +39,9 @@ export default {
     return {
       currentDay: 0,
       currentPeriod: 0,
-      initData: data
+      dates: data.dates,
+      grids: collateGrids(data.grids)
     };
-  },
-  mounted() {
-    // this.initData = data;
   },
   methods: {
     setCurrentDay: function(day) {
@@ -52,9 +52,13 @@ export default {
       this.currentDay = 0;
     },
     getDates: function(period) {
-      const { dates } = this.initData;
+      const { dates } = this;
       return dates.filter(date => date.period === period);
-    }
+    },
+    getGrids: function(period) {
+      const { grids } = this;
+      return grids.filter(grid => grid.period === period);
+    },
   }
 };
 </script>

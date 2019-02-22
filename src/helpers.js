@@ -8,3 +8,12 @@ export function dayOfWeek(date){
 export function monthOfYear(date){
     return monthsOfYear[date.getMonth()];
 }
+
+export function collateGrids(grids){
+    grids.map((grid)=>{
+        grid.performaces.map((show)=>{
+            console.log(show.band, show.dateShow);
+        })
+    })
+    return grids;
+}
