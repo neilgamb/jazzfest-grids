@@ -1,7 +1,7 @@
 <template>
   <div class="show">
-    <div class="band">{{ show.band }}</div>
     <div class="time">{{ showTime(show.dateShow) }}</div>
+    <div class="band">{{ show.band }}</div>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
   props: ["show"],
   methods: {
     showTime: function(dateShow) {
-      return moment(dateShow).format("hh:mm a");
+      return moment(dateShow).format("h:mm");
     }
   }
 };
@@ -22,11 +22,24 @@ export default {
 <style scoped>
 .show {
   display: flex;
-  /* flex: 1; */
   width: 100%;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.show:not(:first-child) {
+  border-top: 1px solid #f0f0f0;
+}
+
+.show .time {
+  flex: 1;
+  font-size: 12px;
+}
+
+.show .band {
+  flex: 5;
 }
 </style>
 

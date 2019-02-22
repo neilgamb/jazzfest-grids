@@ -29,11 +29,12 @@ export default {
 }
 .performances {
   flex: 3;
-  /* text-align: left; */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-left: 1px solid #f0f0f0;
+  /* padding: 10px; */
 }
 </style>
 
