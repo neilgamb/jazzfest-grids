@@ -10,10 +10,12 @@ export function monthOfYear(date){
 }
 
 export function collateGrids(grids){
-    grids.map((grid)=>{
-        grid.performaces.map((show)=>{
-            console.log(show.band, show.dateShow);
+    grids.map(grid => {
+        let dates = [];
+        grid.performances.map(show => {
+            dates.push(show.dateShow)
         })
-    })
+        console.log(new Date(Math.min(...dates)));
+    });
     return grids;
 }
