@@ -16,10 +16,7 @@
     />
     <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
 
-    <modal name="hello-world" :adaptive="true" width="100%" height="100%" @before-close="showDetailsClose">
-      <button @click="$modal.hide('hello-world')"> ❌ </button>
-      <div>{{ currentShowDetails }}</div>
-    </modal>
+    <modals-container /> 
 
   </div>
 </template>
@@ -28,6 +25,7 @@
 import Grids from "./components/Grids";
 import Masthead from "./components/Masthead";
 import Tabs from "./components/Tabs";
+import ShowDetailsModal from './components/ShowDetailsModal';
 import { data } from "./assets/data.js";
 import { collateGrids } from "./helpers.js";
 
@@ -57,7 +55,14 @@ export default {
     },
     showDetailsOpen: function(showDetails) {
       this.currentShowDetails = showDetails
-      this.$modal.show('hello-world');
+      this.$modal.show(ShowDetailsModal, {
+        show: this.currentShowDetails, 
+        showDetailsClose: this.showDetailsClose()
+      }, {
+        adaptive: true,
+        width: '100%',
+        height: '100%'
+      });
     },
     showDetailsClose: function() {
       this.currentShowDetails = null;
