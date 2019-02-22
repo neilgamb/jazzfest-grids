@@ -1,5 +1,5 @@
 <template>
-  <div class="show">
+  <div class="show" v-on:click="showDetailsOpen(show)">
     <div class="time">{{ showTime(show.dateShow) }}</div>
     <div class="band">{{ show.band }}</div>
   </div>
@@ -10,7 +10,7 @@ import moment from "moment";
 
 export default {
   name: "Show",
-  props: ["show"],
+  props: ["show", "showDetailsOpen"],
   methods: {
     showTime: function(dateShow) {
       return moment(dateShow).format("h:mm");

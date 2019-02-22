@@ -2,7 +2,12 @@
   <div>
     <div class="venue">{{ grid.venue.name }}</div>
     <div class="performances">
-      <Show :show="show" v-for="show in grid.performances" :key="show.band"/>
+      <Show 
+        v-for="show in grid.performances" 
+        :showDetailsOpen="showDetailsOpen"
+        :show="show" 
+        :key="show.band"
+      />
     </div>
   </div>
 </template>
@@ -12,7 +17,7 @@ import Show from "./Show";
 
 export default {
   name: "Grid",
-  props: ["grid"],
+  props: ["grid", "showDetailsOpen"],
   components: {
     Show
   }
@@ -34,7 +39,6 @@ export default {
   align-items: center;
   flex-direction: column;
   border-left: 1px solid #f0f0f0;
-  /* padding: 10px; */
 }
 </style>
 

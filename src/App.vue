@@ -9,11 +9,18 @@
     <Grids
       :currentDay="currentDay"
       :setCurrentDay="setCurrentDay"
+      :showDetailsOpen="showDetailsOpen"
       :dates="getDates(currentPeriod)"
       :grids="getGrids(currentPeriod)"
       class="grids"
     />
     <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
+
+    <modal name="hello-world" :adaptive="true" width="100%" height="100%" @before-close="showDetailsClose">
+      <button @click="$modal.hide('hello-world')"> ❌ </button>
+      <div>{{ currentShowDetails }}</div>
+    </modal>
+
   </div>
 </template>
 
@@ -35,6 +42,7 @@ export default {
     return {
       currentDay: 0,
       currentPeriod: 0,
+      currentShowDetails: null,
       dates: data.dates,
       grids: collateGrids(data.grids)
     };
@@ -46,6 +54,13 @@ export default {
     setActiveTab: function(tab) {
       this.currentPeriod = tab;
       this.currentDay = 0;
+    },
+    showDetailsOpen: function(showDetails) {
+      this.currentShowDetails = showDetails
+      this.$modal.show('hello-world');
+    },
+    showDetailsClose: function() {
+      this.currentShowDetails = null;
     },
     getDates: function(period) {
       const { dates } = this;
