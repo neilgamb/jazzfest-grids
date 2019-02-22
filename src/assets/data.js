@@ -16,24 +16,24 @@ export const data = {
   ],
   grids: [
     {
-      venue: venues['cafeIstanbul'],
-      period: 0,
+      venue: venues["cafeIstanbul"],
       performances: [
         {
           band: "Honey Island Swamp Band",
-          dateShow: new Date(2019, 3, 25, 22),  
+          dateShow: new Date(2019, 3, 25, 22),
           dateDoors: null,
           tixPrice: 25,
           tixLink: "https://www.brownpapertickets.com/event/4082197"
         },
         {
-          band: "Golden Gate Wingmen featuring John Kadlecik, Jeff Chimenti, Reed Mathis, Jay Lane",
+          band:
+            "Golden Gate Wingmen featuring John Kadlecik, Jeff Chimenti, Reed Mathis, Jay Lane",
           dateShow: new Date(2019, 3, 26, 1, 30),
           dateDoors: new Date(2019, 3, 25, 23, 59),
           tixPrice: 40,
           tixLink: "https://www.brownpapertickets.com/event/4048894"
-        },
+        }
       ]
-    },
+    }
   ]
 };

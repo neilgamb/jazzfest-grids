@@ -6,18 +6,14 @@
       :dates="getDates(currentPeriod)"
       class="masthead"
     />
-    <Grids 
-      :currentDay="currentDay" 
-      :setCurrentDay="setCurrentDay" 
-      :dates="getDates(currentPeriod)" 
+    <Grids
+      :currentDay="currentDay"
+      :setCurrentDay="setCurrentDay"
+      :dates="getDates(currentPeriod)"
       :grids="getGrids(currentPeriod)"
       class="grids"
     />
-    <Tabs 
-      :activeTab="currentPeriod" 
-      :setActiveTab="setActiveTab" 
-      class="weekend-switch-container"
-    />
+    <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
   </div>
 </template>
 
@@ -57,8 +53,10 @@ export default {
     },
     getGrids: function(period) {
       const { grids } = this;
-      return grids.filter(grid => grid.period === period);
-    },
+      return grids.filter(
+        grid => grid.period === period && grid.day === this.currentDay
+      );
+    }
   }
 };
 </script>
