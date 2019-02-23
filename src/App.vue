@@ -14,7 +14,12 @@
       :grids="getGrids(currentPeriod)"
       class="grids"
     />
-    <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
+
+    <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab"/>
+
+    <button class="addEventButton">
+      <i class="fas fa-plus"></i>
+    </button>
 
     <modals-container/>
   </div>
@@ -108,9 +113,19 @@ export default {
   flex: 1;
 }
 
-.weekend-switch-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.addEventButton {
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  background: white;
+  color: black;
+  bottom: 70px;
+  right: 10px;
+  border-radius: 50%;
+  transition: 50ms;
+}
+
+.addEventButton:active {
+  transform: scale(0.9);
 }
 </style>
