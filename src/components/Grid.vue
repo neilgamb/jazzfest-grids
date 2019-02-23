@@ -1,44 +1,57 @@
 <template>
-  <div>
-    <div class="venue">{{ grid.venue.name }}</div>
-    <div class="performances">
-      <Show
-        v-for="show in grid.performances"
-        :showDetailsOpen="showDetailsOpen"
-        :show="show"
-        :key="show.band"
+  <carousel
+    :navigateTo="currentDay"
+    :per-page="1"
+    :mouse-drag="false"
+    :paginationEnabled="false"
+    :scrollPerPage="true"
+    :perPageCustom="[[0, 1], [480, 2]]"
+    @pageChange="handleSlideChange"
+  >
+    <slide v-for="date in dates" :key="date.date.toString()" class="day">
+      <GridItem
+        v-for="gridItem in grid"
+        :gridItem="gridItem"
+        :key="gridItem.venue.name"
+        :eventDetailsOpen="eventDetailsOpen"
+        class="gridItem"
       />
-    </div>
-  </div>
+    </slide>
+  </carousel>
 </template>
 
 <script>
-import Show from "./Show";
+import { Carousel, Slide } from "vue-carousel";
+import GridItem from "./GridItem";
 
 export default {
   name: "Grid",
-  props: ["grid", "showDetailsOpen"],
+  props: ["currentDay", "setCurrentDay", "eventDetailsOpen", "dates", "grid"],
   components: {
-    Show
+    Carousel,
+    Slide,
+    GridItem
+  },
+  methods: {
+    handleSlideChange: function(current) {
+      this.setCurrentDay(current);
+    }
   }
 };
 </script>
 
 <style scoped>
-.venue {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0px 5px;
+.day {
+  box-sizing: border-box;
 }
-.performances {
-  flex: 4;
+
+.gridItem {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.grid >>> .VueCarousel-wrapper {
+  overflow-y: auto;
 }
 </style>
 

@@ -14,17 +14,17 @@ export const data = {
     { date: new Date(2019, 4, 4), period: 2 },
     { date: new Date(2019, 4, 5), period: 2 }
   ],
-  grids: [
+  grid: [
     {
       venue: venues["cafeIstanbul"],
-      performances: [
+      events: [
         {
           band: "Honey Island Swamp Band",
           featuring: [],
-          dateShow: new Date(2019, 3, 25, 22),
-          dateDoors: null,
-          tixPrice: 25,
-          tixLink: "https://www.brownpapertickets.com/event/4082197"
+          date: new Date(2019, 3, 25, 22),
+          doors: null,
+          price: 25,
+          tix: "https://www.brownpapertickets.com/event/4082197"
         },
         {
           band: "Golden Gate Wingmen",
@@ -34,16 +34,16 @@ export const data = {
             "Reed Mathis",
             "Jay Lane"
           ],
-          dateShow: new Date(2019, 3, 26, 1, 30),
-          dateDoors: new Date(2019, 3, 25, 23, 59),
-          tixPrice: 40,
-          tixLink: "https://www.brownpapertickets.com/event/4048894"
+          date: new Date(2019, 3, 26, 1, 30),
+          doors: new Date(2019, 3, 25, 23, 59),
+          price: 40,
+          tix: "https://www.brownpapertickets.com/event/4048894"
         }
       ]
     },
     {
       venue: venues["maison"],
-      performances: [
+      events: [
         {
           band: "Blue Plate Special",
           featuring: [
@@ -54,27 +54,27 @@ export const data = {
             "Skerik",
             "DJ Logic"
           ],
-          dateShow: new Date(2019, 3, 28, 1, 30),
-          dateDoors: new Date(2019, 3, 27, 23, 45),
-          tixPrice: 35,
-          tixLink:
+          date: new Date(2019, 3, 28, 1, 30),
+          doors: new Date(2019, 3, 27, 23, 45),
+          price: 35,
+          ixx:
             "https://www.eventbrite.com/e/boom-boom-room-presents-blue-plate-special-tickets-55809445554"
         },
         {
           band: "Chance Bushman & The Ibervillianaires",
           featuring: [],
-          dateShow: new Date(2019, 3, 27, 13),
-          dateDoors: null,
-          tixPrice: null,
-          tixLink: null
+          date: new Date(2019, 3, 27, 13),
+          doors: null,
+          price: null,
+          tix: null
         },
         {
           band: "Smokin' Time Jazz Club",
           featuring: [],
-          dateShow: new Date(2019, 3, 27, 19),
-          dateDoors: null,
-          tixPrice: null,
-          tixLink: null
+          date: new Date(2019, 3, 27, 19),
+          doors: null,
+          price: null,
+          tix: null
         }
       ]
     }

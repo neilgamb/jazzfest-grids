@@ -6,13 +6,14 @@
       :dates="getDates(currentPeriod)"
       class="masthead"
     />
-    <Grids
+
+    <Grid
       :currentDay="currentDay"
       :setCurrentDay="setCurrentDay"
-      :showDetailsOpen="showDetailsOpen"
+      :eventDetailsOpen="eventDetailsOpen"
       :dates="getDates(currentPeriod)"
-      :grids="getGrids(currentPeriod)"
-      class="grids"
+      :grid="getGrid(currentPeriod)"
+      class="grid"
     />
 
     <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab"/>
@@ -26,27 +27,27 @@
 </template>
 
 <script>
-import Grids from "./components/Grids";
+import Grid from "./components/Grid";
 import Masthead from "./components/Masthead";
 import Tabs from "./components/Tabs";
-import ShowDetailsModal from "./components/ShowDetailsModal";
+import EventDetailsModal from "./components/EventDetailsModal";
 import { data } from "./assets/data.js";
-import { collateGrids } from "./helpers.js";
+import { collateGrid } from "./helpers.js";
 
 export default {
   name: "app",
   components: {
     Masthead,
-    Grids,
+    Grid,
     Tabs
   },
   data() {
     return {
       currentDay: 0,
       currentPeriod: 0,
-      currentShowDetails: null,
+      currentEventDetails: null,
       dates: data.dates,
-      grids: collateGrids(data.grids)
+      grid: collateGrid(data.grid)
     };
   },
   methods: {
@@ -57,13 +58,13 @@ export default {
       this.currentPeriod = tab;
       this.currentDay = 0;
     },
-    showDetailsOpen: function(showDetails) {
-      this.currentShowDetails = showDetails;
+    eventDetailsOpen: function(eventDetails) {
+      this.currentEventDetails = eventDetails;
       this.$modal.show(
-        ShowDetailsModal,
+        EventDetailsModal,
         {
-          show: this.currentShowDetails,
-          showDetailsClose: this.showDetailsClose
+          event: this.currentEventDetails,
+          eventDetailsClose: this.eventDetailsClose
         },
         {
           adaptive: true,
@@ -72,17 +73,18 @@ export default {
         }
       );
     },
-    showDetailsClose: function() {
-      this.currentShowDetails = null;
+    eventDetailsClose: function() {
+      this.currentEventDetails = null;
     },
     getDates: function(period) {
       const { dates } = this;
       return dates.filter(date => date.period === period);
     },
-    getGrids: function(period) {
-      const { grids } = this;
-      return grids.filter(
-        grid => grid.period === period && grid.day === this.currentDay
+    getGrid: function(period) {
+      const { grid } = this;
+      return grid.filter(
+        gridItem =>
+          gridItem.period === period && gridItem.day === this.currentDay
       );
     }
   }
@@ -109,7 +111,7 @@ export default {
   padding: 10px;
 }
 
-.grids {
+.grid {
   flex: 1;
 }
 

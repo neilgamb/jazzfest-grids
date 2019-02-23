@@ -33,12 +33,12 @@ export function monthOfYear(date) {
   return monthsOfYear[date.getMonth()];
 }
 
-export function collateGrids(grids) {
-  grids.map(grid => {
+export function collateGrid(grid) {
+  grid.map(gridItem => {
     let dates = [];
 
-    grid.performances.map(show => {
-      dates.push(show.dateShow);
+    gridItem.events.map(event => {
+      dates.push(event.date);
     });
 
     let minDate = new Date(Math.min(...dates));
@@ -49,10 +49,10 @@ export function collateGrids(grids) {
 
     data.dates.map((date, i) => {
       if (moment(date.date).isSame(minDate, "day")) {
-        grid.period = date.period;
-        grid.day = i;
+        gridItem.period = date.period;
+        gridItem.day = i;
       }
     });
   });
-  return grids;
+  return grid;
 }

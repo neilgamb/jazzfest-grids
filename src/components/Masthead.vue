@@ -60,12 +60,10 @@ export default {
   align-items: center;
   padding: 0px 10px;
   font-size: 20px;
-  /* font-weight: 400; */
   z-index: 1;
 }
 
 .logo .logo-jazzfest {
-  /* font-size: 20px; */
   font-family: "Marck Script", cursive;
 }
 

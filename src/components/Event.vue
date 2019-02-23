@@ -1,13 +1,13 @@
 <template>
-  <div class="show" v-on:click="showDetailsOpen(show)">
-    <div class="time">{{ showTime(show.dateShow) }}</div>
+  <div class="event" v-on:click="eventDetailsOpen(event)">
+    <div class="time">{{ eventTime(event.date) }}</div>
     <div class="band-container">
-      <div class="band">{{ show.band }}</div>
-      <div v-if="show.featuring.length > 0" class="featuring">
+      <div class="band">{{ event.band }}</div>
+      <div v-if="event.featuring.length > 0" class="featuring">
         <div>
           <i>featuring</i>
         </div>
-        <div v-for="feature in show.featuring" :key="feature" class="feature">{{ feature }}</div>
+        <div v-for="feature in event.featuring" :key="feature" class="feature">{{ feature }}</div>
       </div>
     </div>
   </div>
@@ -17,18 +17,18 @@
 import moment from "moment";
 
 export default {
-  name: "Show",
-  props: ["show", "showDetailsOpen"],
+  name: "Event",
+  props: ["event", "eventDetailsOpen"],
   methods: {
-    showTime: function(dateShow) {
-      return moment(dateShow).format("h:mm a");
+    eventTime: function(date) {
+      return moment(date).format("h:mm a");
     }
   }
 };
 </script>
 
 <style scoped>
-.show {
+.event {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -36,16 +36,16 @@ export default {
   box-sizing: border-box;
 }
 
-.show:not(:first-child) {
+.event:not(:first-child) {
   border-top: 2px solid white;
 }
 
-.show .time {
+.event .time {
   flex: 1;
   font-size: 12px;
 }
 
-.show .band-container {
+.event .band-container {
   flex: 4;
   display: flex;
   flex-direction: column;
