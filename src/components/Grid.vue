@@ -2,10 +2,10 @@
   <div>
     <div class="venue">{{ grid.venue.name }}</div>
     <div class="performances">
-      <Show 
-        v-for="show in grid.performances" 
+      <Show
+        v-for="show in grid.performances"
         :showDetailsOpen="showDetailsOpen"
-        :show="show" 
+        :show="show"
         :key="show.band"
       />
     </div>
@@ -33,7 +33,7 @@ export default {
   padding: 0px 5px;
 }
 .performances {
-  flex: 3;
+  flex: 4;
   display: flex;
   justify-content: center;
   align-items: center;

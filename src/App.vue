@@ -16,8 +16,7 @@
     />
     <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab" class="weekend-switch-container"/>
 
-    <modals-container /> 
-
+    <modals-container/>
   </div>
 </template>
 
@@ -25,7 +24,7 @@
 import Grids from "./components/Grids";
 import Masthead from "./components/Masthead";
 import Tabs from "./components/Tabs";
-import ShowDetailsModal from './components/ShowDetailsModal';
+import ShowDetailsModal from "./components/ShowDetailsModal";
 import { data } from "./assets/data.js";
 import { collateGrids } from "./helpers.js";
 
@@ -54,15 +53,19 @@ export default {
       this.currentDay = 0;
     },
     showDetailsOpen: function(showDetails) {
-      this.currentShowDetails = showDetails
-      this.$modal.show(ShowDetailsModal, {
-        show: this.currentShowDetails, 
-        showDetailsClose: this.showDetailsClose()
-      }, {
-        adaptive: true,
-        width: '100%',
-        height: '100%'
-      });
+      this.currentShowDetails = showDetails;
+      this.$modal.show(
+        ShowDetailsModal,
+        {
+          show: this.currentShowDetails,
+          showDetailsClose: this.showDetailsClose
+        },
+        {
+          adaptive: true,
+          width: "100%",
+          height: "100%"
+        }
+      );
     },
     showDetailsClose: function() {
       this.currentShowDetails = null;

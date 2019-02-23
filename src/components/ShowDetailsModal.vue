@@ -1,7 +1,7 @@
 <template>
-  <div class="showDetails">
-    <button @click="$emit('close'); showDetailsClose()"> ❌ </button>
-    <div>{{ show.band }}</div>
+  <div class="showDetailsContainer">
+    <div class="showDetails">{{ show.band }}</div>
+    <button @click="$emit('close'); showDetailsClose()" class="closeButton">Close</button>
   </div>
 </template>
 
@@ -13,6 +13,21 @@ export default {
 </script>
 
 <style scoped>
+.showDetailsContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
+.showDetails {
+  flex: 12;
+}
+
+.closeButton {
+  border-top: 1px solid #f0f0f0;
+  background: white;
+  flex: 1;
+}
 </style>
 

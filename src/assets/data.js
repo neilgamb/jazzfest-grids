@@ -20,14 +20,20 @@ export const data = {
       performances: [
         {
           band: "Honey Island Swamp Band",
+          featuring: [],
           dateShow: new Date(2019, 3, 25, 22),
           dateDoors: null,
           tixPrice: 25,
           tixLink: "https://www.brownpapertickets.com/event/4082197"
         },
         {
-          band:
-            "Golden Gate Wingmen featuring John Kadlecik, Jeff Chimenti, Reed Mathis, Jay Lane",
+          band: "Golden Gate Wingmen",
+          featuring: [
+            "John Kadlecik",
+            "Jeff Chimenti",
+            "Reed Mathis",
+            "Jay Lane"
+          ],
           dateShow: new Date(2019, 3, 26, 1, 30),
           dateDoors: new Date(2019, 3, 25, 23, 59),
           tixPrice: 40,
@@ -39,8 +45,15 @@ export const data = {
       venue: venues["maison"],
       performances: [
         {
-          band:
-            "Blue Plate Special featuring Will Bernard, Stanton Moore, John Medeski, Andy Hess, Skerik and DJ Logic",
+          band: "Blue Plate Special",
+          featuring: [
+            "Will Bernard",
+            "Stanton Moore",
+            "John Medeski",
+            "Andy Hess",
+            "Skerik",
+            "DJ Logic"
+          ],
           dateShow: new Date(2019, 3, 28, 1, 30),
           dateDoors: new Date(2019, 3, 27, 23, 45),
           tixPrice: 35,
@@ -49,6 +62,7 @@ export const data = {
         },
         {
           band: "Chance Bushman & The Ibervillianaires",
+          featuring: [],
           dateShow: new Date(2019, 3, 27, 13),
           dateDoors: null,
           tixPrice: null,
@@ -56,6 +70,7 @@ export const data = {
         },
         {
           band: "Smokin' Time Jazz Club",
+          featuring: [],
           dateShow: new Date(2019, 3, 27, 19),
           dateDoors: null,
           tixPrice: null,
