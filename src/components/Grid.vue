@@ -38,7 +38,7 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-left: 1px solid #f0f0f0;
+  border-left: 2px solid white;
 }
 </style>
 

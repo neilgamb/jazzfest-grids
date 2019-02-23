@@ -9,10 +9,10 @@
     @pageChange="handleSlideChange"
   >
     <slide v-for="date in dates" :key="date.date.toString()" class="day">
-      <Grid 
-        v-for="grid in grids" 
-        :grid="grid" 
-        :key="grid.venue.name" 
+      <Grid
+        v-for="grid in grids"
+        :grid="grid"
+        :key="grid.venue.name"
         :showDetailsOpen="showDetailsOpen"
         class="grid"
       />
@@ -47,7 +47,7 @@ export default {
 
 .grid {
   display: flex;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 2px solid white;
 }
 
 .grids >>> .VueCarousel-wrapper {

@@ -43,7 +43,8 @@ export default {
 }
 
 .switch.active {
-  background: #f0f0f0;
+  background: white;
+  color: rgb(15, 15, 15);
 }
 </style>
  

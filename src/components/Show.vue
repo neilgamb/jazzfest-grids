@@ -37,7 +37,7 @@ export default {
 }
 
 .show:not(:first-child) {
-  border-top: 1px solid #f0f0f0;
+  border-top: 2px solid white;
 }
 
 .show .time {

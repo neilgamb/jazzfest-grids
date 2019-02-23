@@ -1,31 +1,36 @@
 <template>
-  <carousel
-    :navigateTo="currentDay"
-    :per-page="1"
-    :mouse-drag="false"
-    :paginationEnabled="false"
-    :paginationPadding="2"
-    :paginationSize="6"
-    :scrollPerPage="true"
-    :perPageCustom="[[0, 1], [480, 2]]"
-    paginationActiveColor="#f0f0f0"
-    paginationColor="#666"
-    @pageChange="handleSlideChange"
-  >
-    <slide v-for="date in dates" :key="date.date.toString()" class="date-container">
-      <div class="day-of-week">{{ dayOfWeek(date.date) }}</div>
-      <div class="calendar-container">
-        <div class="month">{{ monthOfYear(date.date) }}</div>
-        <div class="day">{{ date.date.getDate() }}</div>
-      </div>
-    </slide>
-
-  </carousel>
+  <div>
+    <div class="logo">
+      <span class="logo-jazzfest">Jazzfest&nbsp;</span>
+      <span class="logo-grids">GRIDS</span>
+    </div>
+    <carousel
+      :navigateTo="currentDay"
+      :per-page="1"
+      :mouse-drag="false"
+      :paginationEnabled="false"
+      :paginationPadding="2"
+      :paginationSize="6"
+      :scrollPerPage="true"
+      :perPageCustom="[[0, 1], [480, 2]]"
+      paginationActiveColor="#f0f0f0"
+      paginationColor="#666"
+      @pageChange="handleSlideChange"
+    >
+      <slide v-for="date in dates" :key="date.date.toString()" class="date-container">
+        <div class="day-of-week">{{ dayOfWeek(date.date) }}</div>
+        <div class="calendar-container">
+          <div class="month">{{ monthOfYear(date.date) }}</div>
+          <div class="day">{{ date.date.getDate() }}</div>
+        </div>
+      </slide>
+    </carousel>
+  </div>
 </template>
 
 <script>
 import { Carousel, Slide } from "vue-carousel";
-import { dayOfWeek, monthOfYear } from '../helpers';
+import { dayOfWeek, monthOfYear } from "../helpers";
 
 export default {
   name: "Masthead",
@@ -39,12 +44,35 @@ export default {
       this.setCurrentDay(current);
     },
     dayOfWeek: dayOfWeek,
-    monthOfYear: monthOfYear,
+    monthOfYear: monthOfYear
   }
 };
 </script>
 
 <style scoped>
+.logo {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  height: 53px;
+  background: rgb(15, 15, 15);
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  font-size: 20px;
+  /* font-weight: 400; */
+  z-index: 1;
+}
+
+.logo .logo-jazzfest {
+  /* font-size: 20px; */
+  font-family: "Marck Script", cursive;
+}
+
+.logo .logo-grids {
+  font-family: "Monoton", cursive;
+}
+
 .date-container {
   display: flex;
   justify-content: flex-end;

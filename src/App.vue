@@ -95,10 +95,12 @@ export default {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  background: rgb(15, 15, 15);
+  color: white;
 }
 
 .masthead {
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 2px solid white;
   padding: 10px;
 }
 
