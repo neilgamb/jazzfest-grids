@@ -18,7 +18,7 @@
 
     <Tabs :activeTab="currentPeriod" :setActiveTab="setActiveTab"/>
 
-    <button class="addEventButton">
+    <button class="addEventButton" v-on:click="addEventOopen()">
       <i class="fas fa-plus"></i>
     </button>
 
@@ -31,6 +31,7 @@ import Grid from "./components/Grid";
 import Masthead from "./components/Masthead";
 import Tabs from "./components/Tabs";
 import EventDetailsModal from "./components/EventDetailsModal";
+import AddEventModal from "./components/AddEventModal";
 import { data } from "./assets/data.js";
 import { collateGrid } from "./helpers.js";
 
@@ -75,6 +76,17 @@ export default {
     },
     eventDetailsClose: function() {
       this.currentEventDetails = null;
+    },
+    addEventOopen: function() {
+      this.$modal.show(
+        AddEventModal,
+        {},
+        {
+          adaptive: true,
+          width: "100%",
+          height: "100%"
+        }
+      );
     },
     getDates: function(period) {
       const { dates } = this;
