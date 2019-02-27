@@ -127,12 +127,9 @@ export default {
 }
 
 .closeButton {
-  /* border-top: 2px solid #f0f0f0; */
   background: white;
   position: absolute;
   background: white;
-  /* color: gray; */
-  /* border: 1px solid gray; */
   border: none;
   border-radius: 50%;
   font-size: 20px;
